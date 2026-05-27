@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="min-h-screen bg-black text-white px-6 md:px-8 py-24">
+
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Heading -->
+
+        <div class="mb-20">
+
+            <p class="text-blue-400 uppercase tracking-[5px] mb-4">
+                Contact
+            </p>
+
+            <h1 class="text-5xl md:text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Let’s Build Something Great
+            </h1>
+
+            <p class="text-gray-400 text-lg md:text-xl leading-9 max-w-3xl">
+                Open to growth leadership opportunities,
+                consulting engagements,
+                strategic partnerships,
+                and high-impact collaborations.
+            </p>
+
+        </div>
+
+        <!-- Main Grid -->
+
+        <div class="grid md:grid-cols-2 gap-12">
+
+            <!-- Left Side -->
+
+            <div class="space-y-8">
+
+                <!-- Email -->
+
+                <div class="bg-[#111111] border border-gray-800 rounded-3xl p-8 hover:border-blue-500 transition duration-300" data-aos="fade-right">
+
+                    <p class="text-gray-500 uppercase text-sm mb-3">
+                        Email
+                    </p>
+
+                    <a href="mailto:mohitsardana23@gmail.com"
+                       class="text-2xl font-semibold hover:text-blue-400 transition break-all">
+
+                        mohitsardana23@gmail.com
+
+                    </a>
+
+                </div>
+
+                <!-- Location -->
+
+                <div class="bg-[#111111] border border-gray-800 rounded-3xl p-8 hover:border-blue-500 transition duration-300">
+
+                    <p class="text-gray-500 uppercase text-sm mb-3">
+                        Location
+                    </p>
+
+                    <h2 class="text-2xl font-semibold">
+                        Gurugram, India
+                    </h2>
+
+                </div>
+
+                <!-- LinkedIn -->
+
+                <div class="bg-[#111111] border border-gray-800 rounded-3xl p-8 hover:border-blue-500 transition duration-300">
+
+                    <p class="text-gray-500 uppercase text-sm mb-3">
+                        LinkedIn
+                    </p>
+
+                    <a href="https://www.linkedin.com/in/sardanam/"
+                       target="_blank"
+                       class="text-2xl font-semibold hover:text-blue-400 transition">
+
+                        Visit Profile →
+
+                    </a>
+
+                </div>
+
+                <!-- Resume Button -->
+
+                <button id="openModal"
+        class="inline-block bg-blue-500 hover:bg-blue-600 transition duration-300 px-8 py-4 rounded-2xl text-lg font-medium">
+
+    Download Resume
+
+</button>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="bg-[#111111] border border-gray-800 rounded-3xl p-8 md:p-10" data-aos="fade-left">
+
+                <form action="https://formsubmit.co/mohitsardana23@gmail.com"
+                      method="POST"
+                      class="space-y-8">
+
+                    <!-- Hidden Config -->
+
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <input type="hidden"
+                           name="_next"
+                           value="http://127.0.0.1:5000/contact">
+
+                    <input type="hidden"
+                           name="_subject"
+                           value="New Portfolio Contact Request">
+
+                    <!-- Name -->
+
+                    <div>
+
+                        <label class="block text-gray-400 mb-3">
+                            Full Name
+                        </label>
+
+                        <input type="text"
+                               name="name"
+                               required
+                               placeholder="Enter your name"
+                               class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div>
+
+                        <label class="block text-gray-400 mb-3">
+                            Email Address
+                        </label>
+
+                        <input type="email"
+                               name="email"
+                               required
+                               placeholder="Enter your email"
+                               class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+
+                    </div>
+
+                    <!-- Subject -->
+
+                    <div>
+
+                        <label class="block text-gray-400 mb-3">
+                            Subject
+                        </label>
+
+                        <input type="text"
+                               name="subject"
+                               required
+                               placeholder="Project / Opportunity"
+                               class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+
+                    </div>
+
+                    <!-- Message -->
+
+                    <div>
+
+                        <label class="block text-gray-400 mb-3">
+                            Message
+                        </label>
+
+                        <textarea name="message"
+                                  rows="6"
+                                  required
+                                  placeholder="Tell me about your project..."
+                                  class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500"></textarea>
+
+                    </div>
+
+                    <!-- Button -->
+
+                    <button type="submit"
+                            class="w-full bg-blue-500 hover:bg-blue-600 transition duration-300 py-4 rounded-xl text-lg font-medium">
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+
+        <div class="border-t border-gray-800 mt-24 pt-10 text-center">
+
+            <p class="text-gray-500 text-sm md:text-base">
+                © 2026 Mohit Sardana • Built with Flask & Tailwind CSS
+            </p>
+
+        </div>
+
+    </div>
+<!-- Resume Modal -->
+
+<div id="resumeModal"
+     class="fixed inset-0 bg-black/80 hidden justify-center items-center z-50 px-6">
+
+    <div class="bg-[#111111] border border-gray-800 rounded-3xl p-10 max-w-lg w-full">
+
+        <div class="flex justify-between items-center mb-8">
+
+            <h2 class="text-3xl font-bold">
+                Download Resume
+            </h2>
+
+            <button id="closeModal"
+                    class="text-gray-400 text-3xl hover:text-white">
+                ×
+            </button>
+
+        </div>
+
+        <form id="resumeForm" class="space-y-6">
+
+            <!-- Name -->
+
+            <div>
+
+                <label class="block text-gray-400 mb-3">
+                    Full Name
+                </label>
+
+                <input type="text"
+                       required
+                       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+
+            </div>
+
+            <!-- Email -->
+
+            <div>
+
+                <label class="block text-gray-400 mb-3">
+                    Email Address
+                </label>
+
+                <input type="email"
+                       required
+                       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+
+            </div>
+
+            <!-- Company -->
+
+            <div>
+
+                <label class="block text-gray-400 mb-3">
+                    Company
+                </label>
+
+                <input type="text"
+                       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+
+            </div>
+
+            <!-- Submit -->
+
+            <button type="submit"
+                    class="w-full bg-blue-500 hover:bg-blue-600 transition py-4 rounded-xl text-lg font-medium">
+
+                Continue Download
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+</section>
+
+{% endblock %}
