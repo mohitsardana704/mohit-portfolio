@@ -225,7 +225,10 @@
 
         </div>
 
-        <form id="resumeForm" class="space-y-6">
+        <form id="resumeForm"
+         method="POST"
+         action="/download-resume"
+         class="space-y-6">
 
             <!-- Name -->
 
@@ -236,8 +239,9 @@
                 </label>
 
                 <input type="text"
-                       required
-                       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+       name="name"
+       required
+       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
 
             </div>
 
@@ -250,8 +254,9 @@
                 </label>
 
                 <input type="email"
-                       required
-                       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+       name="email"
+       required
+       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
 
             </div>
 
@@ -264,7 +269,8 @@
                 </label>
 
                 <input type="text"
-                       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+       name="company"
+       class="w-full bg-black border border-gray-700 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
 
             </div>
 
