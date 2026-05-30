@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,109 +11,143 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- AOS CSS -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+          rel="stylesheet">
 
 </head>
+
 <body class="bg-black text-white">
+
+    <!-- Navbar -->
 
     <nav class="fixed w-full top-0 z-50 backdrop-blur-lg bg-black/70 border-b border-gray-800">
 
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-6 md:px-8 py-5">
-    
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-5">
+
             <!-- Logo -->
-    
-            <a href="/" class="text-2xl font-bold tracking-wide">
+
+            <a href="/"
+               class="text-2xl font-bold tracking-wide">
+
                 Mohit Sardana
+
             </a>
-    
+
             <!-- Desktop Menu -->
-    
+
             <div class="hidden md:flex space-x-8 text-sm uppercase tracking-wider">
-    
-                <a href="/" class="{% if current_path == '/' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
+
+                <a href="/"
+                   class="{% if request.path == '/' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
                     Home
                 </a>
-    
-                <a href="/about"class="{% if current_path == '/about' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
+
+                <a href="/about"
+                   class="{% if request.path == '/about' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
                     About
                 </a>
-    
-                <a href="/experience" class="{% if current_path == '/experience' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
+
+                <a href="/experience"
+                   class="{% if request.path == '/experience' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
                     Experience
                 </a>
-    
-                <a href="/skills" class="{% if current_path == '/skills' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
+
+                <a href="/skills"
+                   class="{% if request.path == '/skills' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
                     Skills
                 </a>
-    
-                <a href="/projects" class="{% if current_path == '/projects' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
+
+                <a href="/projects"
+                   class="{% if request.path == '/projects' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
                     Projects
                 </a>
-    
-                <a href="/contact" class="{% if current_path == '/contact' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
+
+                <a href="/contact"
+                   class="{% if request.path == '/contact' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition duration-300">
                     Contact
                 </a>
-    
+
             </div>
-    
-            <!-- Mobile Button -->
-    
+
+            <!-- Mobile Menu Button -->
+
             <button id="menu-btn"
                     class="md:hidden text-white text-3xl">
-    
+
                 ☰
-    
+
             </button>
-    
+
         </div>
-    
+
         <!-- Mobile Menu -->
-    
+
         <div id="mobile-menu"
              class="hidden md:hidden bg-black border-t border-gray-800">
-    
+
             <div class="flex flex-col px-6 py-6 space-y-5 uppercase text-sm tracking-wider">
-    
-                <a href="/" class="hover:text-blue-400 transition">
+
+                <a href="/"
+                   class="{% if request.path == '/' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition">
                     Home
                 </a>
-    
-                <a href="/about" class="hover:text-blue-400 transition">
+
+                <a href="/about"
+                   class="{% if request.path == '/about' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition">
                     About
                 </a>
-    
-                <a href="/experience" class="hover:text-blue-400 transition">
+
+                <a href="/experience"
+                   class="{% if request.path == '/experience' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition">
                     Experience
                 </a>
-    
-                <a href="/skills" class="hover:text-blue-400 transition">
+
+                <a href="/skills"
+                   class="{% if request.path == '/skills' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition">
                     Skills
                 </a>
-    
-                <a href="/projects" class="hover:text-blue-400 transition">
+
+                <a href="/projects"
+                   class="{% if request.path == '/projects' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition">
                     Projects
                 </a>
-    
-                <a href="/contact" class="hover:text-blue-400 transition">
+
+                <a href="/contact"
+                   class="{% if request.path == '/contact' %}text-blue-400{% else %}text-white{% endif %} hover:text-blue-400 transition">
                     Contact
                 </a>
-    
+
             </div>
-    
+
         </div>
-    
+
     </nav>
+
+    <!-- Page Content -->
 
     {% block content %}
     {% endblock %}
+
+    <!-- AOS JS -->
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<script>
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
-</script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+    <!-- Main JS -->
+
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>

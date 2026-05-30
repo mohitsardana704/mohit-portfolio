@@ -64,3 +64,10 @@ div{
 .animate-float{
     animation: float 6s ease-in-out infinite;
 }
+.bg-\[\#111111\]{
+    transition: all 0.3s ease;
+}
+
+.bg-\[\#111111\]:hover{
+    transform: translateY(-6px);
+}
