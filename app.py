@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, send_from_directory
 from datetime import datetime
+import os
+import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -7,18 +9,36 @@ app = Flask(__name__)
 
 # Google Sheets Connection
 
+import os
+import json
+
 scope = [
 "https://spreadsheets.google.com/feeds",
 "https://www.googleapis.com/auth/drive"
 ]
 
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-"portfolio-leads-123.json",
-scope
+if os.path.exists("portfolio-leads-123.json"):
+
+ creds = ServiceAccountCredentials.from_json_keyfile_name(
+    "portfolio-leads-123.json",
+    scope
+ )
+
+else:
+
+ google_creds = json.loads(
+    os.environ.get("GOOGLE_CREDS")
+ )
+
+ creds = ServiceAccountCredentials.from_json_keyfile_dict(
+    google_creds,
+    scope
 )
 
 client = gspread.authorize(creds)
+
 sheet = client.open("Resume Leads").sheet1
+
 
 # Home Page
 
